@@ -1,5 +1,5 @@
 ---
-- name: Update and Upgrade APT packages
+- name: Update and Upgrade APT packages without dist-upgrade
   hosts: all
   become: yes
   tasks:
@@ -8,6 +8,8 @@
         update_cache: yes
         cache_valid_time: 3600  # Optional: cache is considered valid for 1 hour
 
-    - name: Upgrade APT packages
+    - name: Upgrade APT packages (without dist-upgrade)
       apt:
+        upgrade: safe
+
         upgrade: dist
