@@ -1,0 +1,13 @@
+---
+- name: Update and Upgrade APT packages
+  hosts: home_linux_servers
+  become: yes
+  tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600  # Optional: cache is considered valid for 1 hour
+
+    - name: Upgrade APT packages
+      apt:
+        upgrade: dist
