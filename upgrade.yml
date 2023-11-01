@@ -1,6 +1,6 @@
 ---
 - name: Update and Upgrade APT packages
-  hosts: home_linux_servers
+  hosts: all
   become: yes
   tasks:
     - name: Update APT cache
